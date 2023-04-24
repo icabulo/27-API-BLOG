@@ -11,7 +11,7 @@ app.use("/comment", commentsRoutes);
 app.use("/post", postsRoutes);
 
 app.get("/", (req, res) => {
-  res.send("<h1>Hello API Prisma</h1>");
+  res.json({ message: "HELLO API Prisma" });
 });
 
 /* //examples
