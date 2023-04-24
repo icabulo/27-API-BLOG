@@ -10,11 +10,11 @@ app.use(express.json());
 app.use("/comment", commentsRoutes);
 app.use("/post", postsRoutes);
 
-/* //examples
 app.get("/", (req, res) => {
-  res.send("<h1>Hello</h1>");
+  res.send("<h1>Hello API Prisma</h1>");
 });
 
+/* //examples
 app.post("/example", (req, res) => {
   res.json({ message: "post pending" });
 }); */
