@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model comments {
+  idcomment    Int    @unique(map: "idcomments_UNIQUE") @default(autoincrement())
+  description  String @db.VarChar(500)
+  posts_idpost Int
+  posts        posts  @relation(fields: [posts_idpost], references: [idpost], onDelete: NoAction, onUpdate: NoAction, map: "fk_comments_blog")
+
+  @@id([idcomment, posts_idpost])
+  @@index([posts_idpost], map: "fk_comments_blog_idx")
+}
+
+model posts {
+  idpost   Int        @id @unique(map: "idblog_UNIQUE") @default(autoincrement())
+  name     String     @db.VarChar(255)
+  content  String     @db.VarChar(1000)
+  comments comments[]
+}
