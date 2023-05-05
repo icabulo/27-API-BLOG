@@ -20,5 +20,5 @@ app.post("/example", (req, res) => {
 }); */
 
 app.listen(PORT, () => {
-  console.log("Server Initialized");
+  console.log(`Server Initialized on PORT:${PORT}`);
 });
